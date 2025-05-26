@@ -1,0 +1,42 @@
+{
+  "name": "furlundclient",
+  "productName": "Furlund",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ramona Meurling",
+  "license": "ISC",
+  "description": "The official companion app for Furlund. A cozy game with adorable cats and social fun!",
+  "dependencies": {
+    "discord-rpc": "^4.0.1"
+  },
+  "devDependencies": {
+    "electron": "^36.3.1",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Intilla",
+        "repo": "FurlundClient"
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
