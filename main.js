@@ -19,6 +19,8 @@ if (process.platform !== "darwin") {
   }
 }
 
+app.setAppUserModelId("Furlund");
+
 function createWindow(version) {
   mainWindow = new BrowserWindow({
     width: 1280,
@@ -53,12 +55,14 @@ function createWindow(version) {
 function setupDiscordRPC() {
   rpc = new RPC.Client({ transport: "ipc" });
   rpc.on("ready", () => {
-    console.log("🎮 Discord RPC connected!");
     rpc.setActivity({
-      details: "Waiting for updates...",
-      state: "Idle",
+      details: "Caring for their cat",
+      state: "Playing Solo",
       largeImageKey: "default",
-      buttons: [{ label: "Play Now", url: gameURL }],
+      largeImageText: "Furlund: Adventure, Magic, and Cats",
+      partySize: 1,
+      partyMax: 5,
+      buttons: [{ label: "Adopt Your Own Cat", url: gameURL }],
     });
   });
 
