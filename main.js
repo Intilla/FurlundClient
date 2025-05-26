@@ -41,6 +41,10 @@ function createWindow(version) {
     return { action: "deny" };
   });
 
+  mainWindow.webContents.on("did-finish-load", () => {
+    mainWindow.setTitle(`Furlund v${version}`);
+  });
+
   mainWindow.on("closed", () => {
     mainWindow = null;
   });
