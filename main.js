@@ -19,7 +19,7 @@ if (process.platform !== "darwin") {
   }
 }
 
-function createWindow() {
+function createWindow(version) {
   mainWindow = new BrowserWindow({
     width: 1280,
     height: 800,
