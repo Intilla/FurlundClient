@@ -1,6 +1,10 @@
 const { app, BrowserWindow, Tray, Menu } = require("electron");
 const path = require("path");
 const RPC = require("discord-rpc");
+const { autoUpdater } = require("electron-updater");
+const log = require("electron-log");
+autoUpdater.logger = log;
+log.transports.file.level = "info";
 
 const clientId = "1375056220200898590";
 const gameURL = "https://furlund.com";
@@ -19,7 +23,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1280,
     height: 800,
-    title: "Furlund",
+    title: `Furlund v${version}`,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
@@ -105,8 +109,9 @@ if (!gotTheLock) {
 
   app.whenReady().then(() => {
     app.setAsDefaultProtocolClient("furlund");
-
-    createWindow();
+    const version = app.getVersion();
+    createWindow(version);
+    autoUpdater.checkForUpdatesAndNotify();
     setupDiscordRPC();
     setupTray();
 

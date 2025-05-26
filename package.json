@@ -1,7 +1,7 @@
 {
   "name": "furlundclient",
   "productName": "Furlund",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -14,7 +14,9 @@
   "license": "ISC",
   "description": "The official companion app for Furlund. A cozy game with adorable cats and social fun!",
   "dependencies": {
-    "discord-rpc": "^4.0.1"
+    "discord-rpc": "^4.0.1",
+    "electron-log": "^5.4.0",
+    "electron-updater": "^6.6.2"
   },
   "devDependencies": {
     "electron": "^36.3.1",
@@ -25,21 +27,26 @@
       {
         "provider": "github",
         "owner": "Intilla",
-        "repo": "FurlundClient"
+        "repo": "FurlundClient",
+        "releaseType": "release"
       }
     ],
     "mac": {
       "category": "public.app-category.utilities",
       "target": "dmg",
-      "icon": "build/furlund-icon.icns"
+      "icon": "furlund-icon.icns"
     },
     "win": {
       "target": "nsis",
-      "icon": "build/furlund-icon.ico"
+      "icon": "furlund-icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "furlund-icon.ico",
+      "uninstallerIcon": "furlund-icon.ico"
     },
     "linux": {
       "target": "AppImage",
-      "icon": "build/furlund-icon.png"
+      "icon": "furlund-icon.png"
     }
   }
 }
