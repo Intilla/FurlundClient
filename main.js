@@ -33,7 +33,7 @@ function createWindow(version) {
     icon: path.join(__dirname, "furlund-icon.png"),
   });
 
-  mainWindow.loadURL(gameURL);
+  mainWindow.loadURL(`${gameURL}?v=${Date.now()}`);
 
   mainWindow.setMenu(null);
 
