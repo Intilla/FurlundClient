@@ -33,6 +33,9 @@ function createWindow(version) {
     icon: path.join(__dirname, "furlund-icon.png"),
   });
 
+  mainWindow.webContents.setUserAgent(
+    `${mainWindow.webContents.getUserAgent()} FurlundExpress`
+  );
   mainWindow.loadURL(`${gameURL}?v=${Date.now()}`);
 
   mainWindow.setMenu(null);

@@ -1,7 +1,9 @@
 {
   "name": "furlundclient",
   "productName": "Furlund",
-  "version": "1.0.9",
+  "appId": "Furlund",
+  "artifactName": "Furlund-Setup.${ext}",
+  "version": "1.0.11",
   "main": "main.js",
   "scripts": {
     "start": "electron .",

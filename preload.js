@@ -4,3 +4,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
   onAuthToken: (callback) =>
     ipcRenderer.on("auth-token", (event, token) => callback(token)),
 });
+
+contextBridge.exposeInMainWorld("furlund", {
+  isExpressClient: true,
+});
